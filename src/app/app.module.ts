@@ -17,12 +17,15 @@ import {RouterModule} from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { CardsComponent } from './componentes/cards/cards.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    DashboardComponent]
+    DashboardComponent,
+    CardsComponent]
   ,
   imports: [
     BrowserModule,
