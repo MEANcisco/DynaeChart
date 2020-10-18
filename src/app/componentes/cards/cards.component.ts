@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Sensor} from '../../modelos/sensor';
 import {DatachartsService} from '../../servicios/datacharts.service';
+import {FormControl} from '@angular/forms';
+import {delay} from 'rxjs/operators';
 
 
 @Component({
@@ -10,6 +12,8 @@ import {DatachartsService} from '../../servicios/datacharts.service';
 })
 export class CardsComponent implements OnInit {
   chart: Sensor;
+  serializedDate = new FormControl((new Date()).toISOString());
+  serializedDatef = new FormControl((new Date()).toISOString());
 
   dataestatica: Sensor[] = [
     {id: 12,
@@ -34,7 +38,17 @@ export class CardsComponent implements OnInit {
     this.chart = this.dataestatica[0];
     this.peticiones.SensorActual = this.dataestatica[0];
   }
+  // tslint:disable-next-line:typedef
+   ActualizarFechas(){
+     this.peticiones.Fechaini = this.serializedDate.value.toISOString();
+     this.peticiones.Fechaf = this.serializedDatef.value.toISOString();
+     console.log('actualiza!');
+     this.peticiones.DestruirGraph = false;
+     setTimeout(() => {     this.peticiones.DestruirGraph = true;
+     }, 2000);
+   }
 
+  // tslint:disable-next-line:typedef
   CambiarData(sensor: Sensor){
     this.chart = sensor;
     this.peticiones.SensorActual = sensor;

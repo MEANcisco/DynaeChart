@@ -3,6 +3,7 @@
   <mat-card-header>
     <mat-card-title>
       {{chart.nombre}}
+
       <button mat-icon-button [matMenuTriggerFor]="menusito" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
@@ -15,6 +16,29 @@
 
         </div>
       </mat-menu>
+
+      <div class="row">
+
+        <mat-form-field appearance="fill">
+
+        <mat-label>Fecha Inicio</mat-label>
+          <input matInput [matDatepicker]="picker" (ngModelChange)="ActualizarFechas()"  (change)="ActualizarFechas()"
+                 [formControl]="serializedDate"
+                 >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+           </mat-form-field>
+
+        <mat-form-field  appearance="fill">
+        <mat-label>Fecha Final</mat-label>
+          <input (change)="ActualizarFechas()" (ngModelChange)="ActualizarFechas()"
+                 matInput [matDatepicker]="picker2"
+                 [formControl]="serializedDatef">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+      </div>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content class="dashboard-card-content">
