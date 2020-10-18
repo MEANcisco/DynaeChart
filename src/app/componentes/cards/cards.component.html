@@ -2,13 +2,18 @@
 <mat-card class="dashboard-card">
   <mat-card-header>
     <mat-card-title>
-      {{title}}
-      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+      {{chart.nombre}}
+      <button mat-icon-button [matMenuTriggerFor]="menusito" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Expand</button>
-        <button mat-menu-item>Remove</button>
+      <mat-menu  #menusito="matMenu" >
+        <div *ngFor=" let menu of dataestatica; let i = index;">
+          <button (click)="CambiarData(menu)" mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>{{menu.nombre}}</span>
+          </button>
+
+        </div>
       </mat-menu>
     </mat-card-title>
   </mat-card-header>

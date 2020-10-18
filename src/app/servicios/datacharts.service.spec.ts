@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PeticioneshttpService } from './peticioneshttp.service';
+import { DatachartsService } from './datacharts.service';
 
 describe('PeticioneshttpService', () => {
-  let service: PeticioneshttpService;
+  let service: DatachartsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PeticioneshttpService);
+    service = TestBed.inject(DatachartsService);
   });
 
   it('should be created', () => {

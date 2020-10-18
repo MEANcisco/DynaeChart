@@ -1,24 +1,15 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+  <h1 class="mat-h1" (click)="this.svc.GetEvotrasensor()">Reporte</h1>
+
   <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
     <!--Graficos-->
-    <mat-grid-tile *ngFor="let item of dataestatica; let i = index" [colspan]="( cardLayout | async )?.chart.cols"
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols"
                    [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-cards title="{{item.nombre}}">
 
-        <mat-form-field appearance="fill">
-          <mat-label>selecciona un rango de tiempo</mat-label>
-          <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="inicio" [ngModel]="dataestatica[i].inicio">
-            <input matEndDate placeholder="fin" [ngModel]="dataestatica[i].fin">
-          </mat-date-range-input>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
+      <app-cards >
+        <app-evotrans *ngIf="svc.feChart && svc.datosChart"></app-evotrans>
 
       </app-cards>
-
-
     </mat-grid-tile>
 
   </mat-grid-list>

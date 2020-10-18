@@ -20,14 +20,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CardsComponent } from './componentes/cards/cards.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GoogleMapsModule} from '@angular/google-maps';
-import { EvotransComponent } from './graficos/evotrans/evotrans.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EvotransComponent } from './graficos/evotrans/evotrans.component';
+
 
 @NgModule({
   declarations: [
@@ -35,8 +36,7 @@ import {FormsModule} from '@angular/forms';
     SidebarComponent,
     DashboardComponent,
     CardsComponent,
-    EvotransComponent]
-  ,
+    EvotransComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -58,10 +58,12 @@ import {FormsModule} from '@angular/forms';
     MatCardModule,
     MatMenuModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [MatNativeDateModule,
-    MatMomentDateModule],
+    MatMomentDateModule,
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
