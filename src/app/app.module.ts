@@ -18,32 +18,50 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { CardsComponent } from './componentes/cards/cards.component';
+import {HttpClientModule} from '@angular/common/http';
+import {GoogleMapsModule} from '@angular/google-maps';
+import { EvotransComponent } from './graficos/evotrans/evotrans.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
+
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     DashboardComponent,
-    CardsComponent]
+    CardsComponent,
+    EvotransComponent]
   ,
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ChartsModule,
     LayoutModule,
+    HttpClientModule,
+    MatDatepickerModule,
+    GoogleMapsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatMomentDateModule,
+    MatNativeDateModule,
     AppRoutingModule,
     RouterModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MatNativeDateModule,
+    MatMomentDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,24 +1,25 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Graficos-->
+    <mat-grid-tile *ngFor="let item of dataestatica; let i = index" [colspan]="( cardLayout | async )?.chart.cols"
+                   [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-cards title="{{item.nombre}}">
+
+        <mat-form-field appearance="fill">
+          <mat-label>selecciona un rango de tiempo</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="inicio" [ngModel]="dataestatica[i].inicio">
+            <input matEndDate placeholder="fin" [ngModel]="dataestatica[i].fin">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+      </app-cards>
+
+
     </mat-grid-tile>
+
   </mat-grid-list>
 </div>
