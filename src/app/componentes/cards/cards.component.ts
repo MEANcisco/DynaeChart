@@ -33,22 +33,25 @@ export class CardsComponent implements OnInit {
 
   constructor( private peticiones: DatachartsService) { }
 
+  // Entrega datos del primer elemento del arreglo de Datos.
 
   ngOnInit(): void {
     this.chart = this.dataestatica[0];
     this.peticiones.SensorActual = this.dataestatica[0];
   }
-  // tslint:disable-next-line:typedef
+
+  // Función que actualiza datos en el servicio haciendo petición según las fechas
    ActualizarFechas(){
      this.peticiones.Fechaini = this.serializedDate.value.toISOString();
      this.peticiones.Fechaf = this.serializedDatef.value.toISOString();
      console.log('actualiza!');
      this.peticiones.DestruirGraph = false;
+     this.peticiones.comenzarTransferencia();
      setTimeout(() => {     this.peticiones.DestruirGraph = true;
      }, 2000);
    }
 
-  // tslint:disable-next-line:typedef
+  // Inyecta los datos del Arraglo de sensores al servicio como al elemento actual
   CambiarData(sensor: Sensor){
     this.chart = sensor;
     this.peticiones.SensorActual = sensor;

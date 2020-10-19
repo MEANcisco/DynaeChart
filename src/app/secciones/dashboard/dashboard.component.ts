@@ -2,10 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {DatachartsService} from '../../servicios/datacharts.service';
-import {interval, Observable} from 'rxjs';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Sensor} from '../../modelos/sensor';
-import {MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +24,7 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 
       return {
         columns: 4,
-        chart: { cols: 4, rows: 3 },
+        chart: { cols: 4, rows: 4 },
       };
     })
   );
@@ -41,11 +37,4 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 ngOnInit() {
     this.svc.comenzarTransferencia();
   }
-
-  // tslint:disable-next-line:typedef
-
-
-  // tslint:disable-next-line:typedef
-
-
 }

@@ -23,7 +23,7 @@ import {GoogleMapsModule} from '@angular/google-maps';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -65,7 +65,8 @@ import {MatInputModule} from '@angular/material/input';
   ],
   providers: [MatNativeDateModule,
     MatMomentDateModule,
-   ],
+    {provide: MAT_DATE_LOCALE, useValue: 'fr'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

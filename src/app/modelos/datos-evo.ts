@@ -2,7 +2,7 @@ export interface DatosEvo {
   id: number;
   calculatedIndexTypeId: number;
   magnitude: number;
-  from: string;
+  from: Date;
   to: string;
 }
 
