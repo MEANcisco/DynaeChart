@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 import { DashboardComponent } from './secciones/dashboard/dashboard.component';
+
 import { ChartsModule } from 'ng2-charts';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';

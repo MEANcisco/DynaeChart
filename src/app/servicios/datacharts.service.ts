@@ -47,10 +47,10 @@ FechaFin;
   // tslint:disable-next-line:typedef
 
 // tslint:disable-next-line:typedef
-  //Recibe datos del sensor tomando en cuenta las variables cambiadas desde el sitio
+  // Recibe datos del sensor tomando en cuenta las variables cambiadas desde el sitio
+// tslint:disable-next-line:typedef
 GetEvotrasensor(){
-  const ahora = Date.now();
-  const hoy = new Date(ahora);
+
   if ( this.FechaFin && this.Fechainicio){
     // tslint:disable-next-line:max-line-length
     this.http.get('https://api.dynasystem.cl/data/sensor/' + this.sensor.id + '/calculatedIndex/1?from=' + this.Fechainicio + '&to=' + this.FechaFin).subscribe(
@@ -63,15 +63,9 @@ GetEvotrasensor(){
           this.feChart = data.indexDetail.map( d => {
             const date = new Date(d.from);
             const year = date.getFullYear();
-            let month = date.getMonth() + 1;
-            let dt = date.getDate();
+            const month = date.getMonth() + 1;
+            const dt = date.getDate();
 
-            if (dt < 10) {
-              dt = '0' + dt;
-            }
-            if (month < 10) {
-              month = '0' + month;
-            }
             return (year + '-' + month + '-' + dt);
           });
         }

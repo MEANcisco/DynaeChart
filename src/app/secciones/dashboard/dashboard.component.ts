@@ -9,7 +9,6 @@ import {DatachartsService} from '../../servicios/datacharts.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-// tslint:disable-next-line:align
 
 
 /** Según el tamaño de la pantalla */
@@ -18,13 +17,13 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
       if (matches) {
         return {
           columns: 1,
-          chart: { cols: 1, rows: 2 },
+          chart: { cols: 1, rows: 2 }
         };
       }
 
       return {
         columns: 4,
-        chart: { cols: 4, rows: 4 },
+        chart: { cols: 4, rows: 4 }
       };
     })
   );
@@ -35,6 +34,5 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 
   // tslint:disable-next-line:typedef
 ngOnInit() {
-    this.svc.comenzarTransferencia();
   }
 }

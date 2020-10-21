@@ -31,7 +31,7 @@ export class CardsComponent implements OnInit {
     }
   ];
 
-  constructor( private peticiones: DatachartsService) { }
+  constructor( public peticiones: DatachartsService) { }
 
   // Entrega datos del primer elemento del arreglo de Datos.
 
