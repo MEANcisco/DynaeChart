@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sensor} from '../../modelos/sensor';
 import {DatachartsService} from '../../servicios/datacharts.service';
 import {FormControl} from '@angular/forms';
-import {delay} from 'rxjs/operators';
 
 
 @Component({
@@ -41,6 +40,7 @@ export class CardsComponent implements OnInit {
   }
 
   // Función que actualiza datos en el servicio haciendo petición según las fechas
+  // tslint:disable-next-line:typedef
    ActualizarFechas(){
      this.peticiones.Fechaini = this.serializedDate.value.toISOString();
      this.peticiones.Fechaf = this.serializedDatef.value.toISOString();
@@ -52,6 +52,7 @@ export class CardsComponent implements OnInit {
    }
 
   // Inyecta los datos del Arraglo de sensores al servicio como al elemento actual
+  // tslint:disable-next-line:typedef
   CambiarData(sensor: Sensor){
     this.chart = sensor;
     this.peticiones.SensorActual = sensor;

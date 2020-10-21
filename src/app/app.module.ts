@@ -29,17 +29,18 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { EvotransComponent } from './graficos/evotrans/evotrans.component';
+import {EvotransComponent } from './graficos/evotrans/evotrans.component';
 import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
+    EvotransComponent,
     AppComponent,
     SidebarComponent,
     DashboardComponent,
     CardsComponent,
-    EvotransComponent],
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -63,11 +64,11 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [MatNativeDateModule,
     MatMomentDateModule,
-    {provide: MAT_DATE_LOCALE, useValue: 'fr'},
+    {provide: MAT_DATE_LOCALE, useValue: 'fr'}
   ],
   bootstrap: [AppComponent]
 })

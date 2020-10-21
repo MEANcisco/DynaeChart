@@ -6,9 +6,8 @@ export interface DatosEvo {
   to: string;
 }
 
-export interface DatoPrincEvo{
+export interface DatoPrincEvo {
   indexDetail: Array<DatosEvo>;
   sum: number;
   avg: number;
-
 }
